@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export const SingleBlog = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ export const SingleBlog = () => {
         <div className="relative">
           <img
             className="w-full mt-[70px]"
-            src={`http://localhost:3000/${blog.image}`}
+            src={blog.image}
             alt="Product Image"
           />
         </div>
@@ -44,9 +44,11 @@ export const SingleBlog = () => {
           <span class="text-black">{blog.subtitle}</span>
           <p className="text-gray-600 text-sm mt-1 mb-4">{blog.description}</p>
           <div className="flex items-center justify-between">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer">
-              Edit
-            </button>
+            <Link to={`/edit/${id}`}>
+              <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer">
+                Edit
+              </button>
+            </Link>
             <button
               onClick={deleteBlog}
               className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded cursor-pointer"

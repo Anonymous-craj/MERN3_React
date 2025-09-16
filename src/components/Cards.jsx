@@ -8,7 +8,7 @@ const Cards = (props) => {
           <div className="w-full h-48 overflow-hidden rounded-t-xl">
             <img
               className="w-full h-full object-cover"
-              src={`http://localhost:3000/${props.blog.image}`}
+              src={props.blog.image}
               alt=""
             />
           </div>
